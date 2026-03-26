@@ -59,6 +59,10 @@ h1 {
   backdrop-filter: blur(4px);
 }
 
+.form > * {
+  min-width: 0;
+}
+
 .form button[type='submit'] {
   grid-column: 1 / -1;
   min-height: 46px;
@@ -78,6 +82,8 @@ label {
 
 input {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   padding: 12px 13px;
   border: 1px solid #5a5a5a;
   border-radius: 10px;
@@ -98,6 +104,11 @@ input:focus {
 input[type='date']::-webkit-calendar-picker-indicator {
   filter: invert(1) brightness(1.2);
   cursor: pointer;
+}
+
+input[type='date'] {
+  inline-size: 100%;
+  max-inline-size: 100%;
 }
 
 button {
@@ -316,6 +327,7 @@ button:disabled {
     grid-template-columns: 1fr;
     padding: 14px;
     border-radius: 14px;
+    overflow: hidden;
   }
 
   .form button[type='submit'] {
