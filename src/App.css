@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+:root {
+  font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+  color: #f5f5f5;
+  background: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #161616 0%, #090909 45%, #000 100%);
+  overflow-x: hidden;
+}
+
+.page {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+}
+
+.ui-layer {
+  position: relative;
+  z-index: 2;
+}
+
+.matrix-snake-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+h1 {
+  margin: 0 0 22px;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  font-family: 'VT323', 'Share Tech Mono', monospace;
+  font-weight: 400;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  background: rgba(10, 10, 10, 0.9);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #454545;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.form button[type='submit'] {
+  grid-column: 1 / -1;
+  min-height: 46px;
+  width: min(100%, 240px);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #e5e5e5;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+input {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #5a5a5a;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #ffffff;
+  background: #111111;
+  transition: all 0.2s ease;
+  font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ffffff;
+  background: #0d0d0d;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.2);
+  cursor: pointer;
+}
+
+button {
+  border: 1px solid #ffffff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #000000;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease,
+    color 0.2s ease;
+  font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.6);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.actions button {
+  flex: 1 1 220px;
+}
+
+.question-box {
+  margin: 28px auto 10px;
+  width: min(100%, 520px);
+  max-width: 520px;
+  text-align: center;
+  border: 1px solid #5a5a5a;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 14px;
+  padding: 18px 16px;
+}
+
+.question-box p {
+  margin: 0 0 12px;
+  color: #f3f4f6;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.question-link {
+  display: inline-block;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.question-link:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.ui-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.ui-popup-card {
+  width: min(92vw, 340px);
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  background: #050505;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
+}
+
+.ui-popup-card p {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ui-popup-card button {
+  min-width: 110px;
+}
+
+.certificate-hidden-render {
+  position: fixed;
+  left: -99999px;
+  top: -99999px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.certificate {
+  position: relative;
+  width: 1080px;
+  aspect-ratio: 1080 / 760;
+  background: #fff;
+}
+
+.certificate-template {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  color: #1f2937;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.name-field {
+  left: 278px;
+  top: 445px;
+  width: 510px;
+  font-size: 30px;
+  line-height: 1.1;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  color: #111827;
+}
+
+.summary-field {
+  left: 140px;
+  top: 528px;
+  width: 800px;
+  white-space: normal;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 25px;
+  line-height: 1.35;
+  font-weight: 400;
+  color: #111827;
+}
+
+.input-value {
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .page {
+    padding-top: 28px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .certificate {
+    width: 980px;
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 24px 16px 36px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 22px 14px 40px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 14px;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .form button[type='submit'] {
+    width: 100%;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .actions button {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .question-box {
+    margin-top: 20px;
+    padding: 14px;
+  }
+
+  .question-box p {
+    font-size: 13px;
+  }
+
+  .question-link {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 27px;
+    line-height: 1.1;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  input,
+  button,
+  .question-link {
+    font-size: 13px;
+  }
+
+  .ui-popup-card {
+    width: calc(100vw - 24px);
+    padding: 14px;
+  }
+
+  .ui-popup-card p {
+    font-size: 16px;
+  }
+}
