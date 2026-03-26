@@ -164,7 +164,7 @@ button:disabled {
 
 .question-box {
   margin: 28px auto 10px;
-  width: min(100%, 520px);
+  width: calc(100% - 28px);
   max-width: 520px;
   text-align: center;
   border: 1px solid #5a5a5a;
