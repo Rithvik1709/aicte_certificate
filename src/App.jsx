@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+import { Analytics } from '@vercel/analytics/react';
 
 const initialForm = {
   name: '',
@@ -435,6 +436,7 @@ export default function App() {
           </div>
         )}
       </div>
+      <Analytics />
     </div>
   );
 }
