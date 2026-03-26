@@ -262,9 +262,9 @@ button:disabled {
 }
 
 .name-field {
-  left: 278px;
-  top: 445px;
-  width: 510px;
+  left: 25.74%;
+  top: 50.26%;
+  width: 47.22%;
   font-size: 30px;
   line-height: 1.1;
   font-family: Georgia, 'Times New Roman', serif;
@@ -273,9 +273,9 @@ button:disabled {
 }
 
 .summary-field {
-  left: 140px;
-  top: 528px;
-  width: 800px;
+  left: 12.96%;
+  top: 60.79%;
+  width: 74.07%;
   white-space: normal;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
