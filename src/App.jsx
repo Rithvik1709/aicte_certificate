@@ -273,7 +273,9 @@ export default function App() {
     return html2canvas(certificateRef.current, {
       scale: 2,
       useCORS: true,
+      allowTaint: true,
       backgroundColor: '#ffffff',
+      logging: false,
     });
   };
 
@@ -413,7 +415,7 @@ export default function App() {
 
         <div className="certificate-hidden-render" aria-hidden="true">
           <div className="certificate" ref={certificateRef}>
-            <img className="certificate-template" src="/Frame 4.png" alt="Certificate template" />
+            <img className="certificate-template" src="/Frame 4.png" alt="Certificate template" crossOrigin="anonymous" />
 
             <div className="overlay name-field">{certificateData?.name || 'Your Name Here'}</div>
             <div className="overlay summary-field">
