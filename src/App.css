@@ -349,6 +349,14 @@ button:disabled {
     width: 100%;
   }
 
+  .name-field {
+    top: 62.63%;
+  }
+
+  .summary-field {
+    top: 74.21%;
+  }
+
   .actions {
     gap: 8px;
   }
