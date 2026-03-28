@@ -406,13 +406,6 @@ export default function App() {
           </button>
         </div>
 
-        <div className="question-box">
-          <p>did you do activity after oct 2025?</p>
-          <a className="question-link" href="/post-oct-2025.html">
-            click me
-          </a>
-        </div>
-
         <div className="certificate-hidden-render" aria-hidden="true">
           <div className="certificate" ref={certificateRef}>
             <img className="certificate-template" src="/Frame 4.png" alt="Certificate template" crossOrigin="anonymous" />
